@@ -31,4 +31,9 @@ jobs:
           # paste output of secret value variable 
          creds: ${{ secrets.AZURE_SPN_CREDENTIAL }}
 
+    - name: az bicep deploy 
+      working-directory: '{github.workspace}/src/bicep'
+      run: |
+          az deployment group create --resource-group Storage-Acc --template-file ./storage_account.bicep
+
          
